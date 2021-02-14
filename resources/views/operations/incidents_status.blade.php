@@ -1,0 +1,39 @@
+@extends('operations.operations_app')
+
+@section('content')
+{{-- <div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid"> --}}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive table--no-card m-b-5">
+                        <table class="table table-borderless table-striped table-earning">
+                            <thead>
+                                <tr>
+                                    <th>Incident ID</th>
+                                    <th>User ID</th>
+                                    <th>Investigation Report</th>
+                                    <th class="text-right">Investigation Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($investigations as $investigations)
+                                <tr>
+                                    <td>{{$investigations->incident_id}}</td>
+                                    <td>{{$investigations->user_id}}</td>
+                                    <td>{{$investigations->investiagtion_statement}}</td>
+                                     <td class="text-center">{{$investigations->investigation_status}}</td>
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        {{-- </div>
+    </div>
+</div> --}}
+
+@endsection
