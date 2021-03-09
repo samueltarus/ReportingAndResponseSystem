@@ -55,7 +55,9 @@ class LoginController extends Controller
         elseif (Auth::check() && Auth::user()->role_id == '3') {
             return('/Operations');
         }
-
+        elseif (Auth::check() && Auth::user()->role_id == '4') {
+            return('/superadmin');
+        }
 
          else {
             return('/login');

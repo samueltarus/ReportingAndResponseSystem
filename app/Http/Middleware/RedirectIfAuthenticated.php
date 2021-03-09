@@ -20,17 +20,23 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check() && Auth::user()->role->id==1) {
 
-            return view('private_portal.private_app');
+            return view('admin.private_dashboard');
 
         } elseif (Auth::guard($guard)->check() && Auth::user()->role->id==2) {
 
-            return view('guards_clients_portal.guard_dashboard');
+            return view('guards.guard_dashboard');
 
         }
 
         elseif (Auth::guard($guard)->check() && Auth::user()->role->id==3) {
 
-            return view('private_portal.operations.all_operations');
+            return view('operations.operations_dashboard');
+
+
+        }
+        elseif (Auth::guard($guard)->check() && Auth::user()->role->id==4) {
+
+            return view('superadmin.superadmin_dashboard');
 
 
         }

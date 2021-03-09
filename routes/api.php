@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('Investigation_Report','OperationsController@investigations_report');
+Route::get('Incidents_Status','OperationsController@incidents_status');

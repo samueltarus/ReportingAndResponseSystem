@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Assign;
 use App\Assignment;
 use App\Incident;
+use App\Mail\GuardAlarmEmail;
 use App\Response;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,8 +13,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
-
-
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Mail;
 
 class GuardsController extends Controller
 {
@@ -60,30 +61,18 @@ class GuardsController extends Controller
 
     public function raise_alarm (Request $request ){
 
-            $data =new Response();
-            $data= Auth::user()->id;
-
-            $location = Assignment::select('location')->get();
-            //dd($location);
-            $data =DB::table('users')
-            ->join('assigns','users.id', '=', 'assigns.employee_id')
-            ->join('assignments', 'assigns.assignment_id', '=', 'assignments.assignment_id')
-            ->select('users.email','assigns.assign_id','assigns.assignment_id','assignments.location')
-            ->where('location',$location)
+           $data =new Response();
+             $data= Auth::user();
+            $guards = DB::table('users')
+            ->select('users.*')
+            ->where('role_id',2)
             ->get();
-            
-            // get all user where location is same as login user
 
-            dd($data);
-
-           // $data->user_id = Auth::user()->id;
-           // $data = User::with('assign')->get(); //Retrieving all subscribers
-            // dd($data);
-
-            // foreach($data as $data){
-            //     Notification::route('mail' , $subscriber->email) //Sending mail to subscriber
-            //                   ->notify(new NewPostNotify($posts)); //With new post
-            //                       }
+            foreach($guards as $guard)
+            {
+                $email = $guard->email;
+                Mail::to($email)->send(new GuardAlarmEmail($data));
+            }
 
 
         return redirect::to('guards');

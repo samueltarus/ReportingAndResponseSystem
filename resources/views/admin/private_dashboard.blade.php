@@ -38,6 +38,8 @@
                 </tbody>
             </table>
         </div>
+
+        {{-- {!! $incidence->render() !!} --}}
         <!-- END DATA TABLE                  -->
     </div>
 </div>

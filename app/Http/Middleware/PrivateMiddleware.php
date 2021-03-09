@@ -29,6 +29,10 @@ class PrivateMiddleware
 
             return redirect('/Operation');
         }
+        elseif (Auth::check() && Auth::user()->role_id == '4') {
+
+            return redirect('/superadmin');
+        }
          else {
             return redirect('/login');
         }

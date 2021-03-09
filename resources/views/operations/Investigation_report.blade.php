@@ -11,7 +11,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Incident Form</strong>
+                            <strong>Invetigation Form</strong>
                         </div>
                         <div class="card-body card-block">
                             <form enctype="multipart/form-data" action="{{url('Investigation_Report')}}" method="post" >

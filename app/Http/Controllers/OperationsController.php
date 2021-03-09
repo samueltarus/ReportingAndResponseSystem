@@ -29,9 +29,10 @@ class OperationsController extends Controller
         $data =new Investigation();
 
         $data['incident_id']=$request->incident_id;
-        $data->user_id = Auth::user()->id;
+        //$data->user_id = Auth::user()->id;
         $data['investiagtion_statement']=$request->investiagtion_statement;
         $data['investigation_status']=$request->investigation_status;
+
         $data->save();
         return redirect::to('Operations');
 

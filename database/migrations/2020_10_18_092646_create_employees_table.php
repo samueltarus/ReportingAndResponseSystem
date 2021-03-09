@@ -20,9 +20,13 @@ class CreateEmployeesTable extends Migration
             $table->string('email');
             $table->string('username');
             $table->integer('phone_number');
+            $table->unsignedBigInteger('partner_id');
+            $table->foreign('partner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
             $table->string('location');
             $table->boolean('is_active');
             $table->timestamps();
+
         });
     }
 

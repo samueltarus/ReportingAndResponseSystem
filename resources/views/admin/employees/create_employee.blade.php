@@ -14,57 +14,36 @@
                             <small> Add</small>
                             <strong>Employee</strong>
                         </div>
+                                    <form method="POST" action="{{url('save-employee')}}">
+                                      @csrf
+                                        <div class="form-group">
+                                            <label for="name">Username</label>
+                                            <input  id="name" name="name" value="{{ old('name') }}" class="au-input au-input--full" type="text" name="name" placeholder="username" required>
+                                        </div>
 
-                        <div class="card-body card-block">
-                            <form enctype="multipart/form-data" action="{{url('save-employee')}}" method="post" >
-                            @csrf
+                                        <div class="form-group">
+                                            <label for="email">Email Address</label>
+                                            <input  id="email" name="email" value="{{ old('email') }}" class="au-input au-input--full" type="email" name="email" placeholder="Email" required>
+                                        </div>
 
-                            <div class="form-group">
-                                <label for="first_name" class=" form-control-label">First Name</label>
-                                <input type="text" id="first_name"  name="first_name" placeholder="Enter Fist  Name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="last_name" class=" form-control-label">Last Name</label>
-                                <input type="text" id="last_name"  name="last_name" placeholder="Enter Fist  Name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class=" form-control-label">Email</label>
-                                <input type="email" id="email"  name="email" placeholder="Enter Email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone_number" class=" form-control-label">Phone Number</label>
-                                <input type="number" id="phone_number" name="phone_number" placeholder="Enter Phone Number" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="location" class=" form-control-label">Location</label>
-                                <input type="text" id="location"  name="location" placeholder="Enter Location" class="form-control" required>
-                            </div>
-                                <div class="form-group">
-                                    <label for="is_active" class="form-check-label ">
-                                        <input type="radio" id="is_active" name="is_active" value="1" class="form-check-input">Active
 
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="is_active" class="form-check-label ">
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input  id="password"  class="au-input au-input--full" type="password" name="password" placeholder="Password" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password-confirm"> Confirm Password</label>
+                                            <input  id="password-confirm"  class="au-input au-input--full" type="password" name="password_confirmation" placeholder="Password" required>
+                                        </div>
 
-                                        <input type="radio" id="is_active" name="is_active" value="0" class="form-check-input">In Active
-                                    </label>
+
+                                        <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit"> {{ __('Register') }}</button>
+
+                                    </form>
+
                                 </div>
 
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Submit
-                                </button>
-                                <button type="reset" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-ban"></i> Reset
-                                </button>
-                            </div>
-
-
-                         </form>
-                        </div>
                     </div>
                 </div>
 

@@ -11,32 +11,40 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
     public function all_employees(){
+        $id = Auth::user()->id;
+        $employees= DB::table('users')->where('partner_id','=', $id )->get();
 
-        // $employees = User::all();
-        $employees = User::with('company')->get();
 
+    if(count ($employees)>0){
 
         return view('admin.employees.all_employees',compact('employees'));
+    }
+    else
+    {
+        return view('admin.employees.all_employees',compact('employees'));
+    }
+
     }
     public function create_employee(){
         return view('admin.employees.create_employee');
     }
+
     public function save_employee(Request $request){
-        $data =new Employee();
+        $data =new User();
 
-        $data['first_name']=$request->first_name;
-        $data['last_name']=$request->last_name;
-        $data['username']= $data['first_name'].''.$data['last_name'];
+         $data['name']=$request->name;
         $data['email']=$request->email;
-        $data['phone_number']=$request->phone_number;
-        $data['location']=$request->location;
+        $data['password']= Hash::make($request->password);
+        $data->partner_id = Auth::user()->id;
 
-        $data['is_active']=$request->is_active;
-        $data->save();
+         $data->save();
 
         return redirect::to('Employees');
 
@@ -130,12 +138,10 @@ class EmployeeController extends Controller
 
      public function assign_employee_role($id){
 
-
         $employees=DB::table('users')
         ->where('id',$id)
         ->first();
-
-            $roles = DB::table('roles')->get();
+        $roles = DB::table('roles')->get();
 
      return view('admin.employees.assign_roles',compact('employees','roles'));
 
@@ -160,19 +166,18 @@ class EmployeeController extends Controller
 
 }
 
+
 //roles
 public function update_employee_role(Request $request,$id){
     $data =array();
-
     $data['role_id']=$request->role_id;
-
     DB::table('users')
     ->where('id', $id)
     ->update($data);
-
     return Redirect::to('Employees');
 
 }
+
 
 //update roles
 

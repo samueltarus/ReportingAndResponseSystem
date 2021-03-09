@@ -28,6 +28,10 @@ class GuardsClientMiddleware
 
             return redirect('/Operations');
         }
+        elseif (Auth::check() && Auth::user()->role_id == '4') {
+
+            return redirect('/superadmin');
+        }
 
         else {
             return redirect('/login');

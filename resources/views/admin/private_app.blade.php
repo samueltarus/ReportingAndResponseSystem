@@ -202,20 +202,16 @@
                                                     <a href="{{url('Employees')}}">All Employees</a>
                                                 </li>
                                                 <li>
+                                                    <a href="{{url('create-employee')}}"> New Employee</a>
+                                                </li>
+                                                <li>
                                                     <a href="{{url('All-assinged')}}"> Assigned Assingments</a>
                                                 </li>
-                                                {{-- <li>
-                                                    <a href="{{url('create-employee')}}">New Employee</a>
-                                                </li> --}}
+
                                                 <li>
                                                     <a href="{{url('create-assign')}}">Assign Assingment</a>
                                                 </li>
-                                                {{-- <li>
-                                                    <a href="{{url('assign-employee-company')}}">Assign Company</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{url('assign-employee-role')}}">Assign Role</a>
-                                                </li> --}}
+
 
 
 

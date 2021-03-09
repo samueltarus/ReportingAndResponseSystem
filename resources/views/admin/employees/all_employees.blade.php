@@ -13,7 +13,9 @@
                                 <tr>
                                     <th>Employee Name</th>
                                     <th>Employee Email</th>
+                                    <th>Employee Company</th>
                                     <th> Employee Security Company</th>
+
                                      <th>Employee Roles</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -23,11 +25,12 @@
                                 <tr>
                                     <td>{{$employee->name}}</td>
                                     <td>{{$employee->email}}</td>
+                                    <td>{{$employee->partner_id}}</td>
                                     <td> <a class="btn btn-success" href="{{URL::to('/assign-employee-company/'.$employee->id)}}">{{$employee->security_company }}
                                         <i class="fas fa-thumbs-up"></i>
                                     </a></td>
                                     {{-- roles assign --}}
-                                    
+
                                     <td class="text-right py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
                                           @if ($employee->role_id==1)
