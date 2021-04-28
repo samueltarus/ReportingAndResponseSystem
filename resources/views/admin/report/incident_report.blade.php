@@ -21,7 +21,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">This Dcoument is valid with partners attach with a stamp</strong>
+                            <strong class="card-title">This Dcoument is valid with partners attached Confirmed Stamp and Signature</strong>
                         </div>
                         <div class="card-body">
                             {{-- <p class="card-text">Incident  Brief Description Before Investigation being DOne

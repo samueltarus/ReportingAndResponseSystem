@@ -45,6 +45,7 @@ class GuardsController extends Controller
         $data =new Incident();
 
         $data->user_id = Auth::user()->id;
+        $data->partner_id  = Auth::user()->partner_id;
         $data['incident_type']=$request->incident_type;
         $data['incident_date']=$request->incident_date;
         $data['incident_description']=$request->incident_description;
@@ -61,19 +62,36 @@ class GuardsController extends Controller
 
     public function raise_alarm (Request $request ){
 
-           $data =new Response();
-             $data= Auth::user();
-            $guards = DB::table('users')
-            ->select('users.*')
+        $data =new Response();
+
+        $partner_id= Auth::user()->id;
+
+        // $guards = DB::table('users')
+        //         ->join('assigns','users.id' ,'=','assigns.employee_id')
+        //         ->join('assignments','assignments.assignment_id', '=', 'assigns.assignment_id')
+        //         ->join('locations','assignments.location_id' ,'=','locations.location_id')
+        //         ->where('employee_id' ,'=',$partner_id)
+        //         ->where('role_id',2)
+        //         ->get();
+
+
+        //          dd($guards);
+
+
+        $guards = DB::table('users')
+            ->join('locations','users.partner_id', '=','locations.partner_id')
+            ->join('assignments','assignments.location_id', '=', 'locations.location_id')
+            ->select('users.email','locations.location','assignments.location_id')
             ->where('role_id',2)
             ->get();
+
+
 
             foreach($guards as $guard)
             {
                 $email = $guard->email;
                 Mail::to($email)->send(new GuardAlarmEmail($data));
             }
-
 
         return redirect::to('guards');
 

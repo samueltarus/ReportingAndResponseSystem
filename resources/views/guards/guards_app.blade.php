@@ -43,9 +43,10 @@
             <div class="container">
                 <div class="header4-wrap">
                     <div class="header__logo">
-                        <a href="#">
+                        {{-- <a href="#">
                             <img src=" {{ URL::asset('/private/images/icon/login.jpg') }}" />
-                        </a>
+                        </a> --}}
+                        <h3>Reporting and Response System</h3>
                     </div>
                     <div class="header__tool">
                         <div class="header-button-item has-noti js-item-menu">

@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->foreign('partner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('phone_number')->nullable();
             $table->unsignedBigInteger('security_company')->nullable();
-            $table->foreign('security_company')->references('company_id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('security_company')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

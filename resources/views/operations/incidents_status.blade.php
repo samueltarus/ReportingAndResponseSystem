@@ -10,9 +10,9 @@
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
-                                    <th>Incident ID</th>
-                                    <th>User ID</th>
-                                    <th>Investigation Report</th>
+                                    <th>OB Reference Number</th>
+                                    <th>Reported By</th>
+                                    <th>Investigation Statement</th>
                                     <th class="text-right">Investigation Status</th>
                                 </tr>
                             </thead>
@@ -22,7 +22,26 @@
                                     <td>{{$investigations->incident_id}}</td>
                                     <td>{{$investigations->user_id}}</td>
                                     <td>{{$investigations->investiagtion_statement}}</td>
-                                     <td class="text-center">{{$investigations->investigation_status}}</td>
+                                    <td class="text-right py-0 align-middle">
+                                        <div class="btn-group btn-group-sm">
+                                          @if ($investigations->investigation_status==1)
+                                          <a class="btn btn-danger" href="#">Open Investiagtion
+
+                                              </a>
+                                              @elseif($investigations->investigation_status==2)
+                                              <a class="btn btn-info" href="#">Recomendation
+
+                                            </a>
+                                                                                         @else
+                                              <a class="btn btn-warning" href="#">Final Report
+
+                                              </a>
+                                              @endif
+
+                                           </div>
+
+                                      </td>
+
                                 </tr>
                                 @endforeach
 
@@ -32,8 +51,5 @@
                 </div>
 
             </div>
-        {{-- </div>
-    </div>
-</div> --}}
 
 @endsection

@@ -41,10 +41,14 @@
         <header class="header-desktop4">
             <div class="container">
                 <div class="header4-wrap">
+                    <h4>Kenya Security Industry Association</h4>
                     <div class="header__logo">
-                        <a  class ="image" href="#">
+                        {{-- <a  class ="image" href="#">
                             <img src="{{ URL::asset('/private/images/icon/login.jpg') }}" />
-                        </a>
+                        </a> --}}
+
+                        <h3>Reporting and Response System</h3>
+
                     </div>
                     <div class="header__tool">
                         <div class="header-button-item has-noti js-item-menu">
@@ -89,10 +93,11 @@
                         <div class="account-wrap">
                             <div class="account-item account-item--style2 clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="{{ URL::asset('/private/images/icon/login.jpg') }}"  />
+                                    <img src="{{ URL::asset('/private/images/icon/login.jpg') }}"   />
                                 </div>
                                 <div class="content">
                                     <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
+
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
@@ -138,6 +143,34 @@
             </section>
             <section>
                 <div class="container">
+                    <section class="au-breadcrumb2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="au-breadcrumb-content">
+                                        <div class="au-breadcrumb-left">
+                                            <span class="au-breadcrumb-span">You are here:</span>
+                                            <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                                <li class="list-inline-item active">
+                                                    <a href="#">Home</a>
+                                                </li>
+                                                <li class="list-inline-item seprate">
+                                                    <span>/</span>
+                                                </li>
+                                                <li class="list-inline-item">Dashboard</li>
+                                            </ul>
+                                        </div>
+                                        <form class="au-form-icon--sm" action="search" method="post">
+                                            <input class="au-input--w300 au-input--style2" type="text" placeholder="Search for datas &amp; reports...">
+                                            <button class="au-btn--submit2" type="submit">
+                                                <i class="zmdi zmdi-search"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <div class="row">
                         <div class="col-xl-2">
                             <!-- MENU SIDEBAR-->
@@ -355,6 +388,7 @@
 
                               @yield('content')
 
+
                             </div>
                             <!-- END PAGE CONTENT-->
                         </div>
@@ -365,6 +399,53 @@
         <!-- END PAGE CONTENT  -->
 
     </div>
+    {{-- <script type="text/javascript">
+        var bars_basic_element = document.getElementById('bars_basic');
+        if (bars_basic_element) {
+            var bars_basic = echarts.init(bars_basic_element);
+            bars_basic.setOption({
+                color: ['#3398DB'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['KK Security', 'Lavington'],
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: 'Total Incidents',
+                        type: 'bar',
+                        barWidth: '20%',
+                        data: [
+
+                            {{$partner1}},
+                            {{$partner2}},
+                        ]
+                    }
+                ]
+            });
+        }
+        </script> --}}
 
     <!-- Jquery JS-->
     <script src="{{asset('private/vendor/jquery-3.2.1.min.js')}}"></script>
@@ -389,6 +470,7 @@
 
     <!-- Main JS-->
     <script src="{{asset('private/js/main.js')}}"></script>
+
 
 </body>
 

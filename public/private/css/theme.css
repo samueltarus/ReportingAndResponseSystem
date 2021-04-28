@@ -96,13 +96,16 @@ p {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+.btn-group-sm>.btn, .btn-sm {
+    font-size: 10px;
+}
 
 /* ----- Typography ----- */
 body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 1.625;
+    font-size: 10px;
+    line-height: 1.125;
     color: #666;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2920,7 +2923,7 @@ section {
 }
 
 .account-item--style2 .content a {
-    font-size: 16px;
+    font-size: 10px;
     color: #ccc;
     font-weight: 500;
 }
@@ -4246,13 +4249,13 @@ section {
 
 .table-earning thead th {
     background: #333;
-    font-size: 16px;
+    font-size: 10px;
     color: #fff;
     vertical-align: middle;
     font-weight: 400;
     text-transform: capitalize;
     line-height: 1;
-    padding: 22px 40px;
+    padding: 10px 15px;
     white-space: nowrap;
 }
 

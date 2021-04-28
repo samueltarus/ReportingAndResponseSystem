@@ -19,7 +19,8 @@ class SuperAdminEmployeeController extends Controller
 {
     public function all_employees(){
         // $id = Auth::user()->id;
-        $employees= DB::table('users')->get();
+        $employees= DB::table('users')->paginate(7);
+
 
         return view('superadmin.employees.all_employees',compact('employees'));
 
@@ -120,10 +121,9 @@ class SuperAdminEmployeeController extends Controller
             $employees=DB::table('users')
             ->where('id',$id)
             ->first();
+            $companies= DB::table('users')->whereNull('partner_id')->get();
 
-            $companies =Company::all();
-
-     return view('superadmin.employees.assign_companies',compact('employees','companies'));
+         return view('superadmin.employees.assign_companies',compact('employees','companies'));
 
         }
 

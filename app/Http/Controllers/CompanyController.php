@@ -28,7 +28,7 @@ class CompanyController extends Controller
         $data['status']=$request->status;
 
         $data->save();
-        
+
         return redirect::to('Companies');
 
     }

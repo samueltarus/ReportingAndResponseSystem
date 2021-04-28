@@ -24,16 +24,21 @@ class IncidentController extends Controller
 
     public function load_incidents(){
 
+        $id = Auth::user()->id;
+        $incidences= DB::table('incidents')->where('partner_id','=', $id )->paginate(7);
+        // dd($incidences);
 
-        $incidences = Incident::with('assingments')
-        ->orderBy('incident_id', 'DESC')
-        ->paginate(7);
+        // $incidences = Incident::with('assingments')
+        // ->orderBy('incident_id', 'DESC')
+        // ->paginate(7);
 
         return view('admin.incident.load_incidence',compact('incidences'));
     }
     public function load_investigations(){
-
-        $incidences = Investigation::with('incident')->get();
+        $id = Auth::user()->id;
+        $incidences= DB::table('investigations')->where('partner_id','=', $id )->paginate(7);
+        // dd($incidences);
+       // $incidences = Investigation::with('incident')->get();
 
         return view('admin.incident.load_investigation',compact('incidences'));
     }
@@ -55,11 +60,14 @@ class IncidentController extends Controller
 
         $data =new Incident();
         $data->user_id = Auth::user()->id;
+        $data->partner_id  = Auth::user()->partner_id;
         $data['incident_type']=$request->incident_type;
         $data['incident_date']=$request->incident_date;
         $data['incident_description']=$request->incident_description;
         $data['name_of_parties_involved']=$request->name_of_parties_involved;
         $data['name_of_witness']=$request->name_of_witness;
+
+
 
         $data->save();
 
@@ -73,10 +81,11 @@ class IncidentController extends Controller
 
         $data['incident_id']=$request->incident_id;
         $data->user_id = Auth::user()->id;
+        $data->partner_id  = Auth::user()->partner_id;
         $data['investiagtion_statement']=$request->investiagtion_statement;
         $data['investiagtion_recomendation']=$request->investiagtion_recomendation;
         $data['investigation_status']=$request->investigation_status;
-    //   dd($data);
+
 
         $data->save();
 

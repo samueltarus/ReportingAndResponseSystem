@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+
 
 class ClientController extends Controller
 {
     public function all_clients(){
 
-        $clients =Client::all();
+        $partner_id = Auth::user()->id;
+
+        $clients= DB::table('clients')->where('partner_id' ,'=',$partner_id)->get();
+
+
         return view('admin.clients.all_clients',compact('clients'));
     }
     public function create_client(){
@@ -19,6 +25,7 @@ class ClientController extends Controller
     }
     public function save_client(Request $request){
         $data =new Client();
+        $data->partner_id = Auth::user()->id;
 
         $data['first_name']=$request->first_name;
         $data['last_name']=$request->last_name;

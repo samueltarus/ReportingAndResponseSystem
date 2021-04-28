@@ -18,7 +18,8 @@ class CreateAssignsTable extends Migration
 
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-
+            $table->unsignedBigInteger('partner_id')->nullable();
+            $table->foreign('partner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('assignment_id');
             $table->foreign('assignment_id')->references('assignment_id')->on('assignments')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

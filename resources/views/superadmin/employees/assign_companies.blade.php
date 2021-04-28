@@ -24,7 +24,7 @@
                                 <label for="security_company" class=" form-control-label">Security Company Name </label>
                                 <select class="form-control" name="security_company" id="security_company" required>
                                     @foreach ($companies as $companies)
-                                    <option value="{{$companies->company_id}}">{{$companies->company_name}}</option>
+                                    <option value="{{$companies->id}}">{{$companies->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

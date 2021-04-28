@@ -32,11 +32,11 @@
                                     <td>{{$incidence->created_at}}</td>
 
                                     <td class="col-lg-2">
-                                        <a href="{{url('/edit-incidence/'.$incidence->incidence_id)}}" class="btn btn-warning col-lg-4"><span style="margin-right: 5px" class="fas fa-edit"></span>Edit</a>
+                                        <a href="{{url('/edit-incidence/'.$incidence->incident_id)}}" class="btn btn-warning col-lg-4"><span style="margin-right: 5px" class="fas fa-edit"></span>Edit</a>
 
-                                            <a href="{{url('/show-incidence/'.$incidence->incidence_id)}}" class="btn btn-info col-lg-4 " ><span style="margin-right: 5px" class="glyphicon glyphicon-align-justify"></span>Details</a>
+                                            <a href="{{url('/show-incidence/'.$incidence->incident_id)}}" class="btn btn-info col-lg-4 " ><span style="margin-right: 5px" class="glyphicon glyphicon-align-justify"></span>Details</a>
 
-                                                <a href="{{url('/delete-incidence/'.$incidence->incidence_id)}}" class="btn btn-danger col-lg-4" ><span style="margin-right: 5px" class="far fa-trash-alt"></span>Delete</a>
+                                                <a href="{{url('/delete-incidence/'.$incidence->incident_id)}}" class="btn btn-danger col-lg-4" ><span style="margin-right: 5px" class="far fa-trash-alt"></span>Delete</a>
                                     </td>
                                 </tr>
 

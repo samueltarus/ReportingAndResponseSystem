@@ -19,6 +19,7 @@ Route::get('/', function () {
 
     return view('auth.login');
 });
+
 ////////////////////SUPER ADMIN CONTROLLERS///////////////////////////////
 
     Route::get('superadmin','SuperAdminController@private_dashboard')->middleware('superadmin');
@@ -80,8 +81,13 @@ Route::get('/', function () {
     Route::get('admin_edit-investigation/{assignment_id}','SuperAdminIncidentController@edit_investigation');
     Route::get('admin_show-investigation/{assignment_id}','SuperAdminIncidentController@show_investigation');
 
+
+
     //reports//////////////////////////
     Route::get('admin_incident-report/{incident_id}','SuperAdminReportsController@incident_report');
+
+    // searc
+    Route::get('search','SuperAdminEmployeeController@search');
 
 
 
@@ -158,8 +164,18 @@ Route::get('/', function () {
     Route::get('edit-investigation/{assignment_id}','IncidentController@edit_investigation');
     Route::get('show-investigation/{assignment_id}','IncidentController@show_investigation');
 
+       //location
+       Route::get('location','LocationController@all_location');
+       Route::get('add-location','LocationController@create_location');
+       Route::post('save-location','LocationController@save_location');
+       Route::get('edit-location/{location_id}','LocationController@edit_location');
+       Route::get('show-location/{location_id}','LocationController@show_location');
+       Route::get('delete-location/{location_id}','LocationController@delete_location');
+
     //reports//////////////////////////
     Route::get('incident-report/{incident_id}','ReportsController@incident_report');
+    Route::get('complete-report-operations','ReportsController@operations_complete_reports');
+    Route::get('summary-report/{incident_id}','ReportsController@summary_report');
 
 
     ///////////////////////////////////////////////////// GUARDS FUNCTIONALITIES///////////////////////////////////////////////////////////////////////////////////

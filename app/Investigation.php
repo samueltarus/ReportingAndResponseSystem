@@ -10,7 +10,7 @@ class Investigation extends Model
     protected $primaryKey="investigation_id";
 
     protected $fillable = [
-        'incident_id','user_id','investiagtion_statement', 'investiagtion_recomendation','investigation_status',
+        'incident_id','user_id','investiagtion_statement', 'investiagtion_recomendation','investigation_status','partner_id'
 
     ];
 

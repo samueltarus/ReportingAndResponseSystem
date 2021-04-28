@@ -42,9 +42,10 @@
             <div class="container">
                 <div class="header4-wrap">
                     <div class="header__logo">
-                        <a  class ="image" href="#">
+                        {{-- <a  class ="image" href="#">
                             <img src="{{ URL::asset('/private/images/icon/login.jpg') }}" />
-                        </a>
+                        </a> --}}
+                        <h3>Reporting and Response System</h3>
                     </div>
                     <div class="header__tool">
                         <div class="header-button-item has-noti js-item-menu">
@@ -156,7 +157,7 @@
 
                                             </ul>
                                         </li>
-                                        <li class="active has-sub">
+                                        {{-- <li class="active has-sub">
                                             <a class="js-arrow" href="#">
                                                 <i></i>Security Companies
 
@@ -170,26 +171,8 @@
                                                 <a href="{{url('add-company')}}">Add Company</a>
                                                 </li>
                                             </ul>
-                                        </li>
-                                        <li class=" active has-sub">
-                                            <a class="js-arrow" href="#">
-                                                <i ></i>Clients
+                                        </li> --}}
 
-                                            </a>
-                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                                <li>
-                                                <a href="{{url('Clients')}}">All Clients</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{url("create-client")}}">New Client</a>
-                                                </li>
-
-
-                                                <li>
-                                                    <a href="map.html">Maps</a>
-                                                </li>
-                                            </ul>
-                                        </li>
                                         <li class=" active has-sub">
                                             <a class="js-arrow" href="#">
                                                 <i ></i>Employees
@@ -219,6 +202,21 @@
                                         </li>
                                         <li class=" active has-sub">
                                             <a class="js-arrow" href="#">
+                                                <i ></i>Clients
+
+                                            </a>
+                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                <li>
+                                                <a href="{{url('Clients')}}">All Clients</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{url("create-client")}}">New Client</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class=" active has-sub">
+                                            <a class="js-arrow" href="#">
                                                 <i></i>Assingments
 
                                             </a>
@@ -232,6 +230,22 @@
                                                 </li>
 
 
+
+                                            </ul>
+                                        </li>
+                                        <li class=" active has-sub">
+                                            <a class="js-arrow" href="#">
+                                                <i></i>Location
+
+                                            </a>
+                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                <li>
+                                                    <a href="{{url('location')}}">All location</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="{{url('add-location')}}">New location</a>
+                                                </li>
 
                                             </ul>
                                         </li>

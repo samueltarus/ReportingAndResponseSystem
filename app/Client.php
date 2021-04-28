@@ -11,13 +11,14 @@ class Client extends Model
 
     protected $fillable = [
 
-        'first_name', 'last_name', 'username','email','phone_number', 'is_active'
+        'first_name', 'last_name', 'username','email','phone_number', 'is_active','partner_id'
     ];
 
     public function assignments(){
 
         return $this->hasMany(Assignment::class);
     }
+    
     public function incidences(){
 
         return $this->hasMany(Client::class);

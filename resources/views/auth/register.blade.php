@@ -40,7 +40,9 @@
             <div class="container">
                 <div class="login-wrap">
                     <div class="login-content">
+
                         <div class="login-logo">
+                            <h4>Kenya Security Industry Association</h4>
                             <a href="#">
                                 <img src="  {{ URL::asset('/private/images/icon/login.jpg') }}">
                             </a>
@@ -70,7 +72,7 @@
 
 
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit"> {{ __('Register') }}</button>
-                           
+
                             </form>
                             <div class="register-link">
                                 <p>

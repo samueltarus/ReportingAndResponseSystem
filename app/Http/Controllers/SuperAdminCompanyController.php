@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
 use App\Company;
+use App\Incident;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class SuperAdminCompanyController extends Controller
 
         //$companies = Company::get();
         $companies= DB::table('users')->whereNull('partner_id')->get();
-       
+
 
         return view('superadmin.companies',compact('companies'));
 
@@ -37,4 +38,7 @@ class SuperAdminCompanyController extends Controller
         return redirect::to('admin_all_companies');
 
     }
+
+
+   
 }

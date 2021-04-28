@@ -37,16 +37,16 @@
                                     <td>{{$assingment->assingment_name}}</td>
                                     <td>{{$assingment->client_id}}</td>
                                     <td>{{$assingment->number_of_employees}}</td>
-                                    <td>{{$assingment->location}}</td>
+                                    <td>{{$assingment->location_id}}</td>
 
                                     <td>{{$assingment->is_active}}</td>
 
                                     <td class="col-lg-3">
-                                        <a href="{{url('/edit-assingment/'.$assingment->assingment_id)}}" class="btn btn-warning col-lg-4"><span style="margin-right: 5px" class="fas fa-edit"></span>Edit</a>
+                                        <a href="{{url('/edit-assingment/'.$assingment->assignment_id)}}" class="btn btn-warning col-lg-4"><span style="margin-right: 5px" class="fas fa-edit"></span>Edit</a>
 
-                                            <a href="{{url('/show-assingment/'.$assingment->assingment_id)}}" class="btn btn-info col-lg-4 " ><span style="margin-right: 5px" class="glyphicon glyphicon-align-justify"></span>Details</a>
+                                            <a href="{{url('/show-assingment/'.$assingment->assignment_id)}}" class="btn btn-info col-lg-4 " ><span style="margin-right: 5px" class="glyphicon glyphicon-align-justify"></span>Details</a>
 
-                                                <a href="{{url('/delete-assingment/'.$assingment->assingment_id)}}" class="btn btn-danger col-lg-4" ><span style="margin-right: 5px" class="far fa-trash-alt"></span>Delete</a>
+                                                <a href="{{url('/delete-assingment/'.$assingment->assignment_id)}}" class="btn btn-danger col-lg-4" ><span style="margin-right: 5px" class="far fa-trash-alt"></span>Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

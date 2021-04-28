@@ -42,10 +42,12 @@
         <header class="header-desktop4">
             <div class="container">
                 <div class="header4-wrap">
+
                     <div class="header__logo">
-                        <a href="#">
+                        {{-- <a href="#">
                             <img src="  {{ URL::asset('/private/images/icon/login.jpg') }}">
-                        </a>
+                        </a> --}}
+                        <h3>Reporting and Response System</h3>
                     </div>
                     <div class="header__tool">
                         <div class="header-button-item has-noti js-item-menu">
@@ -192,8 +194,6 @@
                                         </li>
 
 
-
-
                                         <li class=" active has-sub">
                                             <a class="js-arrow" href="#">
                                                 <i class="fas fa-users"></i>Investigation Report
@@ -205,9 +205,14 @@
                                                 <li>
                                                     <a href="{{url('Investigation')}}">Investigation</a>
                                                 </li>
-
-
                                             </ul>
+                                        </li>
+                                        <li class=" active">
+                                            <a  href="{{url('complete-report-operations')}}">
+                                                <i class="fas fa-users"></i>Complete Reports
+
+                                            </a>
+
                                         </li>
 
                                     </ul>
@@ -222,7 +227,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="copyright">
-                                            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                            <p>Reporting and Response System <a href="https://zotetech.com">Zotetech</a>.</p>
                                         </div>
                                     </div>
                                 </div>

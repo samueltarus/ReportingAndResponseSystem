@@ -17,6 +17,8 @@ class CreateIncidentsTable extends Migration
             $table->bigIncrements('incident_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('partner_id')->nullable();
+            $table->foreign('partner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('incident_type');
             $table->string('incident_date');
             $table->string('incident_description');

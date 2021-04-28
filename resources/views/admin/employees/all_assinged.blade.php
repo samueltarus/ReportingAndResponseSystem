@@ -22,13 +22,13 @@
                                     <td>{{$assing_employees->employee_id}}</td>
                                     <td>{{$assing_employees->assignment_id}}</td>
 
-                                    <td>{{$assing_employees->location}}</td>
+                                    <td>{{$assing_employees->partner_id}}</td>
                                     <td class="col-lg-3">
-                                        <a href="{{url('/edit-employee/'.$assing_employees->id)}}" class="btn btn-warning col-lg-4"><span style="margin-right: 5px" class="fas fa-edit"></span>Edit</a>
+                                        <a href="{{url('/edit-employee/'.$assing_employees->employee_id)}}" class="btn btn-warning col-lg-4"><span style="margin-right: 5px" class="fas fa-edit"></span>Edit</a>
 
-                                            <a href="{{url('/show-employee/'.$assing_employees->id)}}" class="btn btn-info col-lg-4 " ><span style="margin-right: 5px" class="glyphicon glyphicon-align-justify"></span>Details</a>
+                                            <a href="{{url('/show-employee/'.$assing_employees->employee_id)}}" class="btn btn-info col-lg-4 " ><span style="margin-right: 5px" class="glyphicon glyphicon-align-justify"></span>Details</a>
 
-                                                <a href="{{url('/delete-employee/'.$assing_employees->id)}}" class="btn btn-danger col-lg-4" ><span style="margin-right: 5px" class="far fa-trash-alt"></span>Delete</a>
+                                                <a href="{{url('/delete-employee/'.$assing_employees->employee_id)}}" class="btn btn-danger col-lg-4" ><span style="margin-right: 5px" class="far fa-trash-alt"></span>Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

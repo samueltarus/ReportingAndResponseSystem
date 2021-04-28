@@ -15,6 +15,7 @@
                         <th>Incident Description</th>
                         <th>Date Reported</th>
                         <th>Print</th>
+                        <th>Complete Report</th>
 
                     </tr>
                 </thead>
@@ -30,6 +31,10 @@
                              <a href="{{URL::to('/admin_incident-report/'.$incidence->incident_id)}}" class="btn btn-danger" ><i class="material-icons">&#xE15C;</i> <span>Export to PDF</span></a>
 
                         </td>
+                        <td class="col-lg-2">
+                            <a href="{{URL::to('/summary-report/'.$incidence->incident_id)}}" class="btn btn-danger" ><i class="material-icons">&#xE15C;</i> <span>Export to PDF</span></a>
+
+                       </td>
                         {{-- <td class="col-lg-3">
                             <a href="{{url('/edit-incidence/'.$incidence->incidence_id)}}" class="btn btn-warning col-lg-5"><span style="margin-right: 10px" class="fas fa-edit"></span>Edit</a>
                              <a href="{{url('/show-incidence/'.$incidence->incidence_id)}}" class="btn btn-info col-lg-4 " ><span style="margin-right: 5px" class="glyphicon glyphicon-align-justify"></span>Details</a>

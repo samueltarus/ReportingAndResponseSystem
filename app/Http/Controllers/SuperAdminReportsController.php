@@ -3,6 +3,8 @@
 
 use App\Http\Controllers\Controller;
 namespace App\Http\Controllers;
+
+use App\Incident;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -21,5 +23,12 @@ class SuperAdminReportsController extends Controller
         $pdf = PDF::loadView('admin.report.incident_report', compact('incidence'));
 
         return $pdf->download('incident.pdf');
+    }
+    public function weeklyreport(){
+
+        $incidentsLastWeek = Incident::select('created_at')
+                        ->where('created_at', '>', now()->subWeek()->startOfWeek())
+                        ->where('created_at', '<', now()->subWeek()->endOfWeek())
+                        ->count();
     }
 }

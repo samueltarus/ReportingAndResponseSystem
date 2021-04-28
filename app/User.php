@@ -53,8 +53,15 @@ class User extends Authenticatable
 
             }
 
+
     public function assign(){
 
         return$this->belongsTo(Assign::class);
     }
+
+    public function assignment(){
+
+        return $this->hasMany(Assignment::class);
+    }
+
 }

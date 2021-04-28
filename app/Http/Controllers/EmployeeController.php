@@ -24,7 +24,7 @@ class EmployeeController extends Controller
 
     if(count ($employees)>0){
 
-        return view('admin.employees.all_employees',compact('employees'));
+        return view('admin.employees.all_employees',compact('employees' ));
     }
     else
     {
@@ -37,9 +37,10 @@ class EmployeeController extends Controller
     }
 
     public function save_employee(Request $request){
+
         $data =new User();
 
-         $data['name']=$request->name;
+        $data['name']=$request->name;
         $data['email']=$request->email;
         $data['password']= Hash::make($request->password);
         $data->partner_id = Auth::user()->id;
@@ -94,25 +95,36 @@ class EmployeeController extends Controller
 
     public function all_assinged_employees(){
 
-        $assing_employees= Assign::all();
+        $partner_id = Auth::user()->id;
+
+        $assing_employees= DB::table('assigns')->where('partner_id' ,'=',$partner_id)->get();
+
+       // $assing_employees= Assign::all();
+        //  dd($assing_employees);
 
         // dd($assing_employees);
         return view('admin.employees.all_assinged',compact('assing_employees'));
     }
+
     public function create_assinged(){
 
         // $employees = Employee::all();
-        $assingments = Assignment::all();
-        $employees = DB::table('users')
-        ->select('users.*')
-        ->where('role_id',2)
-        ->get();
+        $partner_id = Auth::user()->id;
+        $employees= DB::table('users')->where('partner_id' ,'=',$partner_id)->where('role_id' ,'=','2')->get();
+        $assingments= DB::table('assignments')->where('partner_id' ,'=',$partner_id)->get();
+
+       // $assingments = Assignment::all();
+        // $employees = DB::table('users')
+        // ->select('users.*')
+        // ->where('role_id',2)
+        // ->get();
 
     return view('admin.employees.assing_assingment',compact('employees','assingments'));
     }
 
     public function store_assigned(Request $request){
         $data = new Assign();
+        $data->partner_id = Auth::user()->id;
         $data['employee_id']=$request->employee_id;
         $data['assignment_id']=$request->assignment_id ;
 
@@ -141,7 +153,12 @@ class EmployeeController extends Controller
         $employees=DB::table('users')
         ->where('id',$id)
         ->first();
-        $roles = DB::table('roles')->get();
+        //$roles = Role::exclude('superadmin')->get();
+        $roles = DB::table('roles')
+                    ->whereBetween('id', [1, 3])->get();
+        //             dd($roles);
+
+        // $roles = DB::table('roles')->get();
 
      return view('admin.employees.assign_roles',compact('employees','roles'));
 
@@ -204,5 +221,12 @@ public function update_employee_role(Request $request,$id){
                         ->update(['role_id'=>3]);
 
         return Redirect::to('all-houses');
+     }
+
+     public function search(){
+
+        $user = User::where('name','LIKE','%','%')->orWhere('email','LIKE','%','%')->get();
+
+
      }
 }

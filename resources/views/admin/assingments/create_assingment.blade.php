@@ -39,7 +39,11 @@
 
                             <div class="form-group">
                                 <label for="location" class=" form-control-label">Assignment Location</label>
-                                <input type="text" id="location" name="location" placeholder="Enter location" class="form-control" required>
+                                <select class="form-control" name="location_id" id="location_id" required>
+                                    @foreach ($locations as $location)
+                                    <option value="{{$location->location_id}}">{{$location->location}}</option>
+                                    @endforeach
+                                    </select>
                             </div>
                             <div class="form-group">
                                 <label for="number_of_employees" class=" form-control-label">Number of Guards(Employees)</label>

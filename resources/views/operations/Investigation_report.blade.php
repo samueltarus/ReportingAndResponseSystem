@@ -41,12 +41,20 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
+                                    <div class="col col-md-4">
+                                        <label for="textarea-input" class=" form-control-label">Investigation Recomendation</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="investiagtion_recomendation" id="investiagtion_recomendation" rows="9" placeholder="Content..." class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="select" class=" form-control-label">Status</label>
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <select name="investigation_status" id="investigation_status" class="form-control">
-                                            <option value="0">open Investiagtion</option>
+                                            <option value="0">Open Investiagtion</option>
                                             <option value="1">Recomendation</option>
                                             <option value="2">Final Report</option>
                                         </select>

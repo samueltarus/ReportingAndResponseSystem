@@ -43,18 +43,22 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
+                            <h4>Kenya Security Industry Association</h4>
                             <a href="#">
 
 
                                  <img src="  {{ URL::asset('/private/images/icon/login.jpg') }}">
                                  <br>
                                  <hr>
-                                {{ __('Login') }}
+                                 <b>{{ __('Login') }}</b>
+
                             </a>
                         </div>
                         <div class="login-form">
                             <form method="POST" action="{{ route('login') }}">
                                  @csrf
+                                 {{ csrf_field() }}
+
                                  <div class="form-group">
                                     <label>Email Address</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email">

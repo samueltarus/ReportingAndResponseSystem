@@ -44,6 +44,7 @@ class SuperAdminIncidentController extends Controller
 
         return view('superadmin.incident.add_incidence');
     }
+
     public function add_investigation(){
         $incidents = Incident::all();
 
@@ -56,6 +57,7 @@ class SuperAdminIncidentController extends Controller
 
         $data =new Incident();
         $data->user_id = Auth::user()->id;
+        $data->partner_id = Auth::user()->id;
         $data['incident_type']=$request->incident_type;
         $data['incident_date']=$request->incident_date;
         $data['incident_description']=$request->incident_description;
@@ -74,6 +76,7 @@ class SuperAdminIncidentController extends Controller
 
         $data['incident_id']=$request->incident_id;
         $data->user_id = Auth::user()->id;
+        $data->partner_id = Auth::user()->id;
         $data['investiagtion_statement']=$request->investiagtion_statement;
         $data['investiagtion_recomendation']=$request->investiagtion_recomendation;
         $data['investigation_status']=$request->investigation_status;
